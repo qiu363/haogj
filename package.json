@@ -1,0 +1,21 @@
+{
+  "name": "haogj",
+  "version": "1.0.0",
+  "description": "tool",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.13.4",
+    "mongoose": "^4.4.12",
+    "request": "^2.70.0",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tool"
+  ],
+  "author": "jqliu",
+  "license": "ISC"
+}
