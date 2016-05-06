@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>jieba分词</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      position；relative;
+      padding: 20px;
+    }
+    .txt-area {
+      display: block;
+      min-width: 300px;
+      height: 200px;
+      padding: 5px;
+      border: solid 1px #666;
+      border-radius: 5px;
+      color: #666;
+      font-size: 16px;
+    }
+    .btn {
+      width: 100px;
+      height: 30px;
+      margin-top: 20px;
+      border: solid 1px #666;
+      background: #fff;
+      border-radius: 3px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<div id="J_main" class="main">
+  <textarea class="txt-area"></textarea>
+  <input type="button" value="提交" class="btn">
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+  (function () {
+    var xhr = new XMLHttpRequest();
+
+    var btn = document.querySelector('.btn');
+    btn.addEventListener('click', function () {
+      var txt = document.querySelector('.txt-area');
+      if (txt.value.trim() !== '') {
+        xhr.open('get', '/express/jieba/?w=' + txt.value, true);
+        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200 || shr.status === 304) {
+              var res = xhr.responseText;
+              // res = JSON.parse(res);
+              document.querySelector('.txt-area').value = res;
+            }
+          }
+        };
+        xhr.send();
+      }
+    }, false);
+  })();
+</script>
+</body>
+</html>
