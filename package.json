@@ -13,6 +13,7 @@
   "devDependencies": {
     "vue": "^1.0.21",
     "vue-resource": "^0.7.0",
+    "vue-router": "^0.7.13",
     "webpack": "^1.13.0"
   },
   "scripts": {
