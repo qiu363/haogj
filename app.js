@@ -32,6 +32,10 @@ app.get('/express/jieba', function (req, res) {
   }
 });
 
+app.get('/express/qrcode', function (req, res) {
+  res.sendfile(__dirname + '/www/qrcode.html');
+});
+
 app.get('/express/admin', function (req, res) {
   res.sendfile(__dirname + '/www/admin/index.html');  
 });
