@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>二维码生成器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      position；relative;
+      padding: 20px;
+    }
+    .txt-area {
+      display: block;
+      min-width: 300px;
+      height: 100px;
+      padding: 5px;
+      border: solid 1px #666;
+      border-radius: 5px;
+      color: #666;
+      font-size: 16px;
+    }
+    .btn {
+      width: 100px;
+      height: 30px;
+      margin-top: 20px;
+      border: solid 1px #666;
+      background: #fff;
+      border-radius: 3px;
+      font-size: 14px;
+      color: #666;
+    }
+    .qrcode-cont {
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="J_main" class="main">
+  <textarea class="txt-area"></textarea>
+  <input type="button" value="生成二维码" class="btn">
+</div>
+
+<div id="J_qrcode" class="qrcode-cont"></div>
+
+<script src="./static/js/qrcode.js"></script>
+<script type="text/javascript">
+  var qrcode = new QRCode('J_qrcode', {
+    colorDark: '#000000',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+  document.querySelector(".btn").addEventListener('click', function () {
+    var txt = document.querySelector(".txt-area").value;
+    qrcode.clear();
+    qrcode.makeCode(txt);
+  }, false);
+</script>
+
+</body>
+</html>
